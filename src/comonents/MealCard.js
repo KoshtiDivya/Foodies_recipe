@@ -26,7 +26,7 @@ export default function MealCard() {
         } 
         // console.log(data)
     return (
-        <div className='container-fluid '>
+        <div className='meals-container'>
             <h4 className='msg'>{msg}</h4>
              <div className='meals'>
             {!data ? "Data Not Found" :

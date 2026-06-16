@@ -1,10 +1,17 @@
-body {
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  box-sizing: border-box;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+   background-color: yellow;
 }
 
 code {
@@ -12,11 +19,14 @@ code {
     monospace;
 }
 .container-fluid {
-  background-color: rgb(255, 181, 42);
-  width: 100vb;
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   height: 100vh;
   justify-content: center;
   align-content: center;
+  gap: 1rem;
 }
 
 .head {
@@ -32,11 +42,16 @@ code {
   margin-top: 22px;
 }
 .searchBar input {
-  width: 400px;
+  width: 30%  ;
   padding: 5px;
   font-size: 22px;
-  border: none;
+  border: 1px solid black;
   background-color: #e7e7e7;
+}
+.searchBar button{
+  padding: 8px 2rem;
+  background-color: red;
+  border-radius: 18px;
 }
 .meals {
   display: flex;
@@ -45,9 +60,14 @@ code {
   justify-content: center;
   margin: auto;
   margin-top: 44px;
-  background-color: rgb(255, 181, 42);
-  width: 100vw;
-  margin-left: -13px;
+  background-color: yellow;
+  width: 100%;
+  padding: 0px 1rem 1rem 1rem;
+}
+.meals-container{
+  background-color: yellow;
+  height: 100vh;
+  width: 100% ;
 }
 .meals img {
   width: 100%;
@@ -77,17 +97,27 @@ code {
   padding: 7px;
   cursor: pointer;
 }
-.mealInfo {
+.meal-details{
   height: 100vh;
+  background-color: yellow;
+}
+
+.mealInfo {
+  width: 100%;
   margin: auto;
   display: flex;
+  flex-direction: column;
   gap: 22px;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 181, 42);
+  background-color: yellow;
   padding: 32px;
 }
-
+.mealInfo > div{
+  display: flex;
+  gap: 50px;
+  padding: 1rem;
+}
 .mealInfo img {
   width: 350px;
   height: 300px;
@@ -110,22 +140,57 @@ code {
 
 .msg {
   text-align: center;
-  margin: 20px 20px;
+  padding: 2rem 0 1rem 0;
 }
 .suggestions {
   display: flex;
-  justify-content: space-between;
+  justify-content:center;
   align-items: center;
-  margin: 50px;
+  margin: 50px auto;
   padding: 0 30% 0 30%;
+  gap: 1rem;
   width: 90%;
   height: 100px;
 }
+
 .suggestions button {
-  margin: 10px;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 15px;
   border: none;
   border-radius: 11px;
   box-shadow: 0px 5px 5px 0px rgb(174, 174, 174);
   background-color: #fc5519;
+}
+
+@media only screen and (max-width:700px){
+   .mealInfo > div{
+    flex-direction: column;
+    padding: 1rem 2rem;
+   }
+}
+@media only screen and (max-width:340px){
+  .mealInfo{
+    padding: 1rem 0;
+  }
+  .mealInfo img{
+    width: 100%;
+  }
+  .container-fluid > div{
+    width: 100%;
+  }
+  .searchBar{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .searchBar input{
+    height: 2.5rem;
+    width: 90%;
+  }
+  .suggestions{
+    flex-direction: column;
+    
+  }
 }

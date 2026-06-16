@@ -16,24 +16,26 @@ export default function MealDetails() {
     useEffect(() => {
         if (meal != "") {
             getInfo()
-        }    
-    },[])
-  return (
-        <div className='container-fluid'>
+        }
+    }, [])
+    return (
+        <div className='meal-details'>
             {
-              !meal ? <p style={{textAlign:"center"}}>Data Not Found</p> :
-              <div className='mealInfo'>
-                <img src={meal.strMealThumb} height="300px" />
-                <div className='info'>
-                    <h1>Recipe Detail</h1>
-                    <button>{meal.strMeal}</button>
-                    <h3>Instruction's</h3>
-                    <p>{meal.strInstructions}</p>
-                   <NavLink  to="/"><button>Back</button> </NavLink>
-                      
-                </div>
-              </div>
-            
+                !meal ? <p style={{ textAlign: "center" }}>Data Not Found</p> :
+                    <div className='mealInfo'>
+                        <h1>Recipe Detail</h1>
+                        <div>
+                            <img src={meal.strMealThumb} height="300px" />
+                            <div className='info'>
+                                <button>{meal.strMeal}</button>
+                                <h3>Instruction's</h3>
+                                <p>{meal.strInstructions}</p>
+                                <NavLink to="/"><button>Back</button> </NavLink>
+
+                            </div>
+                        </div>
+                    </div>
+
             }
         </div>
 
