@@ -1,32 +1,49 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+const categories = [
+  { label: "Cake", path: "/cake" },
+  { label: "Pizza", path: "/pizza" },
+  { label: "Burger", path: "/burger" },
+  { label: "Veg", path: "/veg" },
+];
 
 function MainPage() {
   const [search, setSearch] = useState("");
-  // const [msg, setMsg] = useState("");
-
-  const searchDishe = (e) => {
-    setSearch(e.target.value);
-  }
 
   return (
-    <div className="container-fluid">
-      <h1 className="head">Foodie's Recipe</h1>
-      <div>
-        <h3 style={{ textAlign: "center" }}>Hello Foodies....</h3>
-        <div className="searchBar">
-          <input type="text" placeholder="Enter meal.." onChange={searchDishe} />
-          <NavLink to={`/${search}`}><Button>Search</Button></NavLink>
+    <div className="page home-page">
+      <section className="hero">
+        <p className="hero-eyebrow">Discover &amp; cook</p>
+        <h1 className="hero-title">Find your next favorite meal</h1>
+        <p className="hero-subtitle">
+          Search thousands of recipes from around the world, or browse popular
+          categories below.
+        </p>
+
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search for pasta, chicken, dessert..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <NavLink
+            to={search.trim() ? `/${search.trim()}` : "/"}
+            className="btn btn-primary"
+          >
+            Search
+          </NavLink>
         </div>
-      </div>
-      <div className="suggestions">
-        <NavLink to={"/cake"}><button>Cake</button></NavLink>
-        <NavLink to={"/pizza"}><button>Pizza</button></NavLink>
-        <NavLink to={"/burger"}><button>Burger</button></NavLink>
-        <NavLink to={"/veg"}><button>Veg</button></NavLink>
-      </div>
+
+        <div className="category-pills">
+          {categories.map(({ label, path }) => (
+            <NavLink key={path} to={path} className="category-pill">
+              {label}
+            </NavLink>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
